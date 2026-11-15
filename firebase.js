@@ -1,0 +1,12 @@
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+export * from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+export * from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyCdvTeOGnsBUJXokHIXMqqFqDnpJSZBLLs",authDomain:"study-mate-92238.firebaseapp.com",projectId:"study-mate-92238",storageBucket:"study-mate-92238.firebasestorage.app",messagingSenderId:"342010248035",appId:"1:342010248035:web:d647fa3b6351ad29bd3156"});
+export const auth=getAuth(app),db=getFirestore(app);
+export const $=(s,r=document)=>r.querySelector(s);
+export const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+export const by=(a,b)=>(a.order??0)-(b.order??0);
+export const rows=s=>s.docs.map(d=>({id:d.id,...d.data()}));
+export const fmt=t=>t?.toDate?t.toDate().toLocaleDateString("bn-BD"):"-";
